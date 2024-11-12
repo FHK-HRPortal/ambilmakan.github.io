@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absensi Makan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Container untuk form absensi -->
+    <div id="attendance-form-container">
+        <h1 class="form-title">Form Ambil Makan Online</h1> <!-- Judul form -->
+
+        <form id="attendance-form">
+            <label for="name">Pilih Nama:</label>
+            <select id="name" onchange="updateDepartment(); toggleShiftDropdown(); updatePhoto();">
+                <!-- Nama karyawan akan dimuat oleh JavaScript -->
+            </select>
+
+            <label for="department">Departemen:</label>
+            <input type="text" id="department" readonly>
+
+            <!-- Dropdown Shift -->
+            <div id="shift-container" style="display: none;">
+                <label for="shift">Pilih Shift:</label>
+                <select id="shift">
+                    <option value="Shift 1">Shift 1</option>
+                    <option value="Shift 2">Shift 2</option>
+                    <option value="Shift 3">Shift 3</option>
+                </select>
+            </div>
+
+            <img id="employee-photo" src="" alt="Employee Photo" style="display: none;">
+            <button type="submit">Ambil Makan</button>
+        </form>
+
+        <p id="status"></p>
+
+        <!-- Tombol download data absensi -->
+        <button id="download" onclick="downloadSpreadsheet()" style="display: none;">Download Data Absensi</button>
+        
+    </div>
+    <!-- Modal Pemberitahuan -->
+<div id="modal-notification" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal()">&times;</span>
+        <p id="modal-message">Anda sudah ambil makan hari ini. Cukup ambil makan sekali sehari.</p>
+    </div>
+</div>
+
+    <script src="main.js"></script>
+</body>
+</html>
